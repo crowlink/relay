@@ -6,6 +6,5 @@ sudo iptables -t nat -A POSTROUTING -p tcp --match multiport --dports  8080,1443
 sudo iptables -t nat -A PREROUTING -p tcp --match multiport --dports  8080,1443 -j DNAT --to-destination $IP
 sudo iptables -t nat -A POSTROUTING -p udp -j MASQUERADE 
 sudo iptables -t nat -A PREROUTING -p udp -j DNAT --to-destination $IP
-
 sudo mkdir -p /etc/iptables/ 
 sudo iptables-save | sudo tee /etc/iptables/rules.v4
